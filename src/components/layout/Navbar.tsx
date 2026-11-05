@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks, siteConfig } from "@/data/portfolio";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -43,12 +44,14 @@ export default function Navbar() {
     >
       <nav
         className={cn(
-          "mx-auto flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 sm:px-6",
-          scrolled ? "glass mx-4 shadow-lg shadow-black/30 sm:mx-6 lg:mx-auto" : "bg-transparent",
+          "flex max-w-6xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-300 sm:px-6",
+          scrolled
+            ? "glass-strong mx-4 sm:mx-6 lg:mx-auto"
+            : "mx-auto bg-transparent",
         )}
       >
-        <a href="#home" className="flex items-center gap-2 font-display text-lg font-bold text-white">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-accent to-accent-2 text-sm">
+        <a href="#home" className="flex items-center gap-2 font-display text-lg font-bold text-fg">
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-accent to-accent-2 text-sm text-white">
             {siteConfig.shortName}
           </span>
           <span className="hidden sm:inline">{siteConfig.name}</span>
@@ -63,13 +66,13 @@ export default function Navbar() {
                   href={link.href}
                   className={cn(
                     "relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    isActive ? "text-white" : "text-gray-400 hover:text-white",
+                    isActive ? "text-fg" : "text-muted hover:text-fg",
                   )}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 -z-10 rounded-full bg-white/10"
+                      className="absolute inset-0 -z-10 rounded-full bg-fg/10"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -80,21 +83,23 @@ export default function Navbar() {
           })}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden rounded-full bg-white px-5 py-2 text-sm font-semibold text-ink-950 transition hover:bg-accent-2 md:inline-block"
-        >
-          Hire Me
-        </a>
-
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-full text-white hover:bg-white/10 md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-1 md:gap-2">
+          <ThemeToggle />
+          <a
+            href="#contact"
+            className="hidden rounded-full bg-fg px-5 py-2 text-sm font-semibold text-bg transition hover:bg-accent hover:text-white md:inline-block"
+          >
+            Hire Me
+          </a>
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="grid h-10 w-10 place-items-center rounded-full text-fg hover:bg-fg/10 md:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -103,14 +108,14 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            className="glass mx-4 mt-3 flex flex-col gap-1 rounded-3xl p-3 md:hidden"
+            className="glass-strong mx-4 mt-3 flex flex-col gap-1 rounded-3xl p-3 md:hidden"
           >
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-2xl px-4 py-3 text-gray-200 hover:bg-white/10"
+                  className="block rounded-2xl px-4 py-3 text-body hover:bg-fg/10 hover:text-fg"
                 >
                   {link.label}
                 </a>

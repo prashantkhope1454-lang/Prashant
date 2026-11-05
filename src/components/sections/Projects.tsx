@@ -26,12 +26,12 @@ export default function Projects() {
                   unoptimized={project.image.endsWith(".svg")}
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/10 to-transparent" />
               </div>
 
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-xl font-semibold text-white">{project.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-400">
+                <h3 className="font-display text-xl font-semibold text-fg">{project.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
                   {project.description}
                 </p>
 
@@ -39,7 +39,7 @@ export default function Projects() {
                   {project.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-violet-300"
+                      className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent-fg"
                     >
                       {t}
                     </span>
@@ -47,13 +47,13 @@ export default function Projects() {
                 </div>
 
                 {(project.github || project.live) && (
-                  <div className="mt-6 flex gap-3 border-t border-white/5 pt-5">
+                  <div className="mt-6 flex gap-3 border-t border-line pt-5">
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-gray-300 transition hover:text-white"
+                        className="inline-flex items-center gap-2 text-sm text-body transition hover:text-fg"
                       >
                         <SocialIcon icon="github" className="h-4 w-4" /> GitHub
                       </a>
@@ -63,7 +63,7 @@ export default function Projects() {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="ml-auto inline-flex items-center gap-2 text-sm text-accent-2 transition hover:text-white"
+                        className="ml-auto inline-flex items-center gap-2 text-sm text-accent-2 transition hover:text-fg"
                       >
                         Live Demo <ExternalLink size={14} />
                       </a>

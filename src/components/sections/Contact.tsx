@@ -28,14 +28,14 @@ export default function Contact() {
           {contactItems.map(({ icon: Icon, label, value, href }, i) => {
             const content = (
               <>
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-accent/30 to-accent-2/20 text-white transition-transform group-hover:scale-110">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-accent/30 to-accent-2/20 text-fg transition-transform group-hover:scale-110">
                   <Icon size={20} />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-xs uppercase tracking-wider text-gray-500">
+                  <span className="block text-xs uppercase tracking-wider text-subtle">
                     {label}
                   </span>
-                  <span className="block text-gray-200 [overflow-wrap:anywhere]">{value}</span>
+                  <span className="block text-fg [overflow-wrap:anywhere]">{value}</span>
                 </span>
               </>
             );
@@ -56,7 +56,7 @@ export default function Contact() {
         </div>
 
         <Reveal delay={0.2} className="glass rounded-3xl p-6 text-center">
-          <p className="mb-4 text-sm text-gray-400">Find me on</p>
+          <p className="mb-4 text-sm text-muted">Find me on</p>
           <div className="flex flex-wrap justify-center gap-3">
             {socials.map((s) => (
               <a
@@ -64,7 +64,7 @@ export default function Contact() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-gray-300 transition hover:border-accent hover:bg-accent/10 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-body transition hover:border-accent hover:bg-accent/10 hover:text-fg"
               >
                 <SocialIcon icon={s.icon} className="h-4 w-4" /> {s.name}
               </a>

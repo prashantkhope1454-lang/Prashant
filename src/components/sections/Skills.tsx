@@ -27,23 +27,23 @@ export default function Skills() {
             <Reveal
               key={group.title}
               delay={gi * 0.1}
-              className="glass group rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10"
+              className="glass group rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10 sm:p-7"
             >
               <div className="mb-6 flex items-center gap-3">
-                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-accent/30 to-accent-2/20 text-white transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-accent/30 to-accent-2/20 text-fg transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                   <Icon size={20} />
                 </span>
-                <h3 className="font-display text-xl font-semibold text-white">{group.title}</h3>
+                <h3 className="font-display text-xl font-semibold text-fg">{group.title}</h3>
               </div>
 
               <ul className="space-y-5">
                 {group.items.map((skill) => (
                   <li key={skill.name}>
-                    <div className="mb-2 flex justify-between text-sm">
-                      <span className="text-gray-300">{skill.name}</span>
-                      <span className="text-gray-500">{skill.level}%</span>
+                    <div className="mb-2 flex justify-between gap-3 text-sm">
+                      <span className="text-body">{skill.name}</span>
+                      <span className="text-subtle">{skill.level}%</span>
                     </div>
-                    <div className="h-1.5 overflow-hidden rounded-full bg-white/5">
+                    <div className="h-1.5 overflow-hidden rounded-full bg-fg/10">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
