@@ -16,8 +16,8 @@ export const siteConfig = {
   phone: "+91 7389806552",
   // Change to your real domain once deployed (used for SEO / Open Graph).
   url: "https://prashantkhope.vercel.app",
-  // Replace /profile.svg with your photo, e.g. /profile.jpg
-  photo: "/profile.svg",
+  // Profile photo in /public — keep it square for the round frame.
+  photo: "/profile.jpg",
   resumeUrl: "/Prashant-Khope-Resume.pdf",
   description:
     "Prashant Khope — HR & Admin and business development professional in Pune with experience in event execution, real estate sales, sourcing and client relationship management.",
